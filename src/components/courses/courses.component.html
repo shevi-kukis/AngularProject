@@ -1,0 +1,15 @@
+<mat-card class="course-card">
+    @for(course of courses; track course) {
+        <mat-card-content>
+        <mat-card-title>{{course.title}}</mat-card-title>
+        <p>{{course.description}}</p>
+
+        @if(isEnroll(course.id)) {
+        <button mat-raised-button color="warn" (click)="unenrollCourse(course.id)">Unenroll</button>
+        }
+        @else {
+        <button mat-raised-button color="primary" (click)="enrollCourse(course.id)">Enroll</button>
+        }
+    </mat-card-content>
+    }
+</mat-card>

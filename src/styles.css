@@ -1,4 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+    height: 100vh;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    /* background-image: url('assets/online-5360755_1280.webp'); */
+    /* נתיב לתמונה */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* מיקום התמונה במרכז */
+    background-attachment: fixed;
+    /* רקע קבוע שלא יזוז בעת גלילה */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* על מנת שהתמונה תכסה את כל גובה הדף */
+    font-family: 'Arial', sans-serif;
+    /* גופן כללי לדף */
+    overflow: auto;
+    /* גלילה תתאפשר רק כאשר התוכן חורג */
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

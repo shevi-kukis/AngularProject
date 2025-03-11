@@ -1,0 +1,37 @@
+.course-details-card {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.back-button {
+    background-color: rgb(175, 219, 219);
+    color: white;
+    margin-bottom: 20px;
+}
+
+.show-lessons-button {
+    background-color: rgb(175, 219, 219);
+    color: white;
+    margin: 10px 0;
+}
+
+.lesson-card {
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f7f7f7;
+}
+
+mat-card-header {
+    text-align: center;
+}
+
+mat-card-content {
+    padding: 10px;
+}

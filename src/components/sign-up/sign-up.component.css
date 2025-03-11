@@ -1,0 +1,97 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(167, 235, 229, 0.2);
+}
+
+#eye {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.register-card {
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease-in-out;
+    background-color: rgba(167, 235, 229, 0.2);
+    margin-top: 5%;
+    margin-left: 36%;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mat-card-title {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 16px;
+    color: #70b2b1;
+}
+
+.mat-form-field {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.mat-form-field .mat-input-element {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.mat-error {
+    color: red;
+    font-size: 5px;
+}
+
+/* 7. שינוי צבע מסגרת ה-INPUT בעת לחיצה */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    border-color: #70b2b1;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline.mat-focused {
+    border-color: #70b2b1 !important;
+    box-shadow: 0 0 5px 2px rgba(112, 178, 177, 0.5);
+}
+
+.mat-form-field-label {
+    color: #70b2b1 !important;
+}
+
+/* 8. כפתור ה-Submit */
+button {
+    width: 100%;
+    background-color: #70b2b1;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #b2dfdf;
+    color: white;
+
+}
+
+button:not(:disabled) {
+    background-color: #70b2b1;
+    color: white;
+}

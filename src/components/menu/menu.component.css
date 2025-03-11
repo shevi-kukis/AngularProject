@@ -1,62 +1,95 @@
-/* Toolbar */
-mat-toolbar {
-    background-color: #66bb6a; /* ירוק בהיר */
-    color: white;
-    font-size: 1.5rem;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.navbar {
+    background-color: white;
+    box-shadow: none;
 }
 
-mat-toolbar span {
-    font-weight: bold;
-}
-
-/* Navigation Menu */
-nav {
-    background-color: #81c784; /* ירוק בהיר */
-    padding: 10px 0;
-}
-
-.menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.nav-links {
     display: flex;
     justify-content: center;
-}
-
-.menu li {
-    margin: 0 20px;
-}
-
-.menu a {
-    display: flex;
     align-items: center;
-    font-size: 1.1rem;
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+    background-color:rgba(167, 235, 229, 0.2);
+}
+
+.mat-button {
+    font-size: 16px;
+    margin: 0 10px;
     padding: 10px 15px;
-    border-radius: 30px;
 }
 
-.menu a:hover {
-    background-color: #66bb6a; /* ירוק כהה יותר */
-    color: #fff;
+/* הוספת רווח מלמעלה לקישורים */
+.nav-item {
+    text-transform: capitalize;
+    margin-top: 10px;
+    /* רווח מלמעלה */
+    font-weight: normal;
 }
 
-.menu a .mat-icon {
-    margin-right: 8px;
+/* צבעים שונים לכל קישור */
+.home {
+    color: #ff5722;
+    /* צבע כתום עבור Home */
 }
 
-/* Active link */
-.menu a.active {
-    background-color: #388e3c; /* ירוק כהה יותר כשכפתור פעיל */
+.sign-up {
+    color: #03a9f4;
+    /* צבע כחול עבור Sign-up */
 }
 
-/* Router outlet */
-router-outlet {
-    margin-top: 20px;
+.sign-in {
+    color: #4caf50;
+    /* צבע ירוק עבור Sign-in */
+}
+
+.courses {
+    color: #ff9800;
+    /* צבע צהוב עבור Courses */
+}
+
+.courses-manage {
+    color: #9c27b0;
+    /* צבע סגול עבור CoursesManage */
+}
+
+.my-courses {
+    color: #3f51b5;
+    /* צבע כחול כהה עבור MyCourses */
+}
+
+.logout {
+    color: #f44336;
+    /* צבע אדום עבור Logout */
+}
+
+/* אפקט Hover */
+.mat-button:hover {
+    background-color: #f1f1f1;
+    /* רקע בהובר */
+    color: #000;
+    /* צבע טקסט ב-hover */
+    transform: scale(1.05);
+    /* אנימציה של גידול בגודל */
+}
+
+/* אפקט Hover צבעוני: שינוי צבע כאשר הסמן עובר */
+.nav-item:hover {
+    color: #ffffff;
+    /* צבע טקסט בהובר */
+    background-color: #bfe8e7;
+    /* רקע בהובר */
+    transition: all 0.3s ease;
+    /* אפקט מעבר רך */
+}
+
+/* אפקט עבור כפתור Logout */
+.logout:hover {
+    background-color: #f44336;
+    /* רקע אדום */
+    color: white;
+    /* צבע לבן */
+}
+
+/* רווחים וקטעי עיצוב נוספים */
+.navbar {
+    padding: 10px 0;
 }

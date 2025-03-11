@@ -11,7 +11,7 @@ describe('CourseManagementComponent', () => {
       imports: [CourseManagementComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(CourseManagementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

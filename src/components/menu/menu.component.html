@@ -1,14 +1,32 @@
-<mat-toolbar color="primary">
-    <span>קורסים און ליין</span>
-</mat-toolbar>
+<nav class="navbar mat-elevation-z4">
+    <mat-toolbar color="primary">
+        <div class="nav-links">
+            <a mat-button routerLink="" routerLinkActive="active" class="nav-item home">Home</a>
 
-<nav>
-    <ul class="menu">
-        <li><a routerLink="/menu/home" routerLinkActive="active" ariaCurrentWhenActive="page"><mat-icon>home</mat-icon> בית</a></li>
-        <li><a routerLink="/menu/course" routerLinkActive="active" ariaCurrentWhenActive="page"><mat-icon>list</mat-icon> רשימת קורסים</a></li>
-        @if(isTeacer){
-        <li><a routerLink="/menu/course-management" routerLinkActive="active" ariaCurrentWhenActive="page"><mat-icon>settings</mat-icon> ניהול קורסים</a></li>}
-    </ul>
+            @if(!getFromSessionStorage('token')) {
+            <a mat-button routerLink="sign-up" routerLinkActive="active" class="nav-item sign-up">Sign-up</a>
+            <a mat-button routerLink="login" routerLinkActive="active" class="nav-item sign-in">Sign-in</a>
+            }
+
+            <a mat-button routerLink="courses" routerLinkActive="active" class="nav-item courses">Courses</a>
+
+            @if(getUserRole() === 'teacher') {
+            <a mat-button routerLink="courseManage" routerLinkActive="active"
+                class="nav-item courses-manage">CoursesManage</a>
+            }
+
+            <a mat-button routerLink="myCourses" routerLinkActive="active" class="nav-item my-courses">MyCourses</a>
+
+            @if(getFromSessionStorage('token')) {
+            <button mat-button [matMenuTriggerFor]="menu" class="nav-item logout">Logout</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="Logout()">Logout</button>
+            </mat-menu>
+            }
+        </div>
+    </mat-toolbar>
 </nav>
 
-<router-outlet />
+<div class="content">
+    <router-outlet></router-outlet>
+</div>

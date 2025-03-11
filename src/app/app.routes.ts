@@ -1,36 +1,19 @@
 import { Routes } from '@angular/router';
-import { EditUserComponent } from '../components/edit-user/edit-user.component';
-import { MenuComponent } from '../components/menu/menu.component';
-import { AuthComponent } from '../components/auth/auth.component';
-import { HomeComponent } from '../components/home/home.component';
-import { CourseListComponent } from '../components/course-list/course-list.component';
-import { CourseComponent } from '../components/course/course.component';
+import { SignUpComponent } from '../components/sign-up/sign-up.component';
+import { LoginComponent } from '../components/login/login.component';
+import { HomePageComponent } from '../components/home-page/home-page.component';
+import { CoursesComponent } from '../components/courses/courses.component';
+import { CourseDetailsComponent } from '../components/course-details/course-details.component';
 import { CourseManagementComponent } from '../components/course-management/course-management.component';
-import { LessonListComponent } from '../components/lesson-list/lesson-list.component';
-import { ManagementLessonComponent } from '../components/lesson-management/lesson-management.component';
 import { MyCoursesComponent } from '../components/my-courses/my-courses.component';
+import { AuthGuard } from '../guards/auth-guard/auth.guard';
 
 export const routes: Routes = [
-    { path: 'auth', component: AuthComponent },
-    {
-        path: 'menu', component: MenuComponent, children: [
-            { path: 'home', component: HomeComponent },
-            { path: 'course', component: CourseListComponent },
-            { path: 'my-courses', component: MyCoursesComponent },
-
-            {
-                path: 'course/:id', component: CourseComponent, children: [
-                    { path: 'lessons', component: LessonListComponent }, // נתיב לשיעורים
-                    // { path: 'lessons/:lessonId', component: LessonComponent }, // נתיב לשיעור ספציפי
-                ]
-            },
-            {
-                path: 'course-management', component: CourseManagementComponent, children: [
-                    { path: 'lesson-management/:courseId', component: ManagementLessonComponent }
-                ]
-            },
-        ]
-    },
-    { path: '', redirectTo: '/auth', pathMatch: 'full' }
+    { path: 'sign-up', component: SignUpComponent },
+    { path: 'login', component: LoginComponent },
+    { path: '', component: HomePageComponent },
+    { path: 'courses', component: CoursesComponent, canActivate: [AuthGuard] },
+    { path: 'courseDetails/:id', component: CourseDetailsComponent, canActivate: [AuthGuard] },
+    { path: 'courseManage', component: CourseManagementComponent, canActivate: [AuthGuard],  },
+    { path: 'myCourses', component: MyCoursesComponent, canActivate: [AuthGuard], }
 ];
-///////////////////////////////////////////////////

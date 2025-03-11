@@ -1,0 +1,26 @@
+.course-card {
+    width: 90%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    margin: 10px auto;
+    text-align: center;
+    /* מרכז את התוכן */
+}
+
+mat-card-header {
+    text-align: center;
+}
+
+mat-card-content {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    margin-top: 10px;
+    color: rgb(140, 188, 188);
+}

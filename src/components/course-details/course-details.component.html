@@ -1,0 +1,27 @@
+<mat-card class="course-details-card">
+    <button mat-raised-button [routerLink]="['/myCourses']" color="primary" class="back-button">Back</button>
+
+    <mat-card-header>
+        <mat-card-title>{{course?.title}}</mat-card-title>
+        <mat-card-subtitle>{{course?.description}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <button mat-raised-button class="show-lessons-button" (click)="showLessons()">
+            Show/Hide Lessons
+        </button>
+
+        @if(showAllLessons) {
+        @for (lesson of lessons; track $index) {
+        <mat-card class="lesson-card">
+            <mat-card-header>
+                <mat-card-title>{{lesson.title}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{lesson.content}}</p>
+            </mat-card-content>
+        </mat-card>
+        }
+        }
+    </mat-card-content>
+</mat-card>

@@ -1,45 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user-service/user.service';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { UserService } from '../../services/userService/user.service';
+import { jwtDecode } from 'jwt-decode';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { AuthService } from '../../services/authService/auth.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive,    MatToolbarModule,
-    MatIconModule],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, MatToolbarModule, MatButtonModule, MatMenuModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
 
-  private userId: string; // ה-ID של המשתמש
-  //private token: string; // הטוקן של המשתמש
-isTeacer:boolean =false
-  constructor(private router: Router, private userService: UserService,private authService:AuthService) {
+  constructor(private userService: UserService, private router: Router) { }
 
-    // הנח שה-ID והטוקן נשמרים ב.איזשהו מקום, כמו ב-localStorage
-    // this.userId = localStorage.getItem('userId') || ''; // או כל מקור אחר
-    // this.token = localStorage.getItem('token') || ''; // או כל מקור אחר
-    this.userId="1"
-    //this.token="admin"
-    console.log(authService.getRole())
-    if(authService.getRole()!=='student')
-      this.isTeacer=true
-    console.log(this.isTeacer)
+  getFromSessionStorage(key: string): string | null {
+    return sessionStorage.getItem(key)
   }
 
-  deleteUser() {
-    // const confirmation = confirm("האם אתה בטוח שתרצה לצאת?");
-    // if (confirmation) {
-    //   this.userService.deleteUser(this.userId, this.token).subscribe(response => {
-    //     // נווט לדף הכניסה או דף אחר לאחר המחיקה
-    //     this.router.navigate(['/']);
-    //   }, error => {
-    //     console.error('Error deleting user:', error);
-    //   });
-    // }
+  getUserRole() {
+
+    return this.userService.getUserRole()
   }
+
+  Logout() {
+    this.userService.Logout()
+    this.router.navigate(['/'])
+  }
+
 }

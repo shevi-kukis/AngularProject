@@ -1,1 +1,23 @@
-<p>my-courses works!</p>
+<mat-card class="course-card">
+    @for(course of myCourses; track $index) {
+      <mat-card-header>
+        <mat-card-title>{{course.title}}</mat-card-title>
+        <mat-card-subtitle>{{course.description}}</mat-card-subtitle>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <button mat-raised-button color="red" [routerLink]="['/courseDetails', course.id]">
+          View Course Details
+        </button>
+      </mat-card-content>
+    }
+  </mat-card>
+  
+  <mat-card>
+    @if(!flag) {
+      <mat-card-content>
+        <p>You have not joined any courses yet.</p>
+      </mat-card-content>
+    }
+  </mat-card>
+  
